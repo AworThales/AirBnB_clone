@@ -1,4 +1,4 @@
-i#!/usr/bin/python3
+#!/usr/bin/python3
 """ This is the Class Amenity """
 from models.base_model import BaseModel
 
