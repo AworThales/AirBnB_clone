@@ -20,20 +20,20 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ Starting Construct """
         if kwargs:
-            for keyed, valued in kwargs.items():
-                if keyed == '__class__':
+            for key, value in kwargs.items():
+                if key == '__class__':
                     continue
-                elif keyed == 'updated_at':
-                    valued = datetime.strptime(valued, "%Y-%m-%dT%H:%M:%S.%f")
-                elif keyed == 'created_at':
-                    valued = datetime.strptime(valued, "%Y-%m-%dT%H:%M:%S.%f")
-                if 'id' not in kwargs.keyed():
+                elif key == 'updated_at':
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == 'created_at':
+                    value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                if 'id' not in kwargs.key():
                     self.id = str(uuid4())
-                if 'created_at' not in kwargs.keyed():
+                if 'created_at' not in kwargs.key():
                     self.created_at = datetime.now()
-                if 'updated_at' not in kwargs.keyed():
+                if 'updated_at' not in kwargs.key():
                     self.updated_at = datetime.now()
-                setattr(self, keyed, valued)
+                setattr(self, key, value)
         else:
             self.id = str(uuid4())
             self.created_at = datetime.now()
